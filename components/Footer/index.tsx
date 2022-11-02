@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import type { FC } from 'react'
+import Image from 'next/image';
+import type { FC } from 'react';
 
 const Footer: FC = () => {
   return (
@@ -13,7 +13,7 @@ const Footer: FC = () => {
         <Image src="/vercel.svg" alt="Vercel Logo" height={'32'} width={'64'} />
       </a>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
