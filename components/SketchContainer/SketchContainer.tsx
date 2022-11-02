@@ -1,14 +1,14 @@
 /* eslint-disable no-case-declarations */
 import { Button } from '@mui/material';
 import dynamic from 'next/dynamic';
+import p5Type from 'p5';
 import { FC } from 'react';
 import { SHAPES } from 'shared/constants/shapes.const';
-import p5Type from 'p5';
 import { SketchParameters } from 'shared/models/sketch-parameters.model';
 
 type propsType = { form: SketchParameters };
 
-const Sketch = dynamic(import('react-p5'), { ssr: false });
+const Sketch = dynamic(import('react-p5'), { ssr: false }) as any;
 
 let r = 3; // Distance between points
 const k = 30;

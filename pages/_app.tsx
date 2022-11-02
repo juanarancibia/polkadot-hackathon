@@ -4,9 +4,10 @@ import 'styles/tailwind.css';
 import Layout from 'components/Layout';
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
+  const AnyComponent = Component as any;
   return (
     <Layout>
-      <Component {...pageProps} />
+      <AnyComponent {...pageProps} />
     </Layout>
   );
 };
