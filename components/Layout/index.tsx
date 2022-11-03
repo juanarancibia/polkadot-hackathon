@@ -1,4 +1,3 @@
-import Footer from 'components/Footer';
 import Header from 'components/Header';
 import type { FC } from 'react';
 
@@ -9,7 +8,6 @@ const Layout: FC = ({ children }) => {
       <main className="container mx-auto mt-10 flex justify-center">
         {children}
       </main>
-      <Footer />
     </div>
   );
 };

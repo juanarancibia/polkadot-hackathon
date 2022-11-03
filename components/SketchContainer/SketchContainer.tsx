@@ -1,5 +1,4 @@
 /* eslint-disable no-case-declarations */
-import { Button } from '@mui/material';
 import dynamic from 'next/dynamic';
 import p5Type from 'p5';
 import { FC } from 'react';
@@ -20,20 +19,17 @@ let ordered = [];
 
 let cols, rows;
 let color;
-let canvas;
-let p5Instance;
 
 const SketchContainer: FC<propsType> = (props: propsType) => {
   r = props.form.r;
   w = (r - props.form.overlappingFactor * r * 0.1) / Math.sqrt(2);
 
   const setup = (p5: p5Type, canvasParentRef: Element) => {
-    p5Instance = p5;
     grid = [];
     active = [];
     ordered = [];
 
-    canvas = p5.createCanvas(350, 622).parent(canvasParentRef);
+    p5.createCanvas(350, 622).parent(canvasParentRef);
     p5.background(props.form.bgColor);
     p5.strokeCap(p5.ROUND);
 
@@ -189,21 +185,9 @@ const SketchContainer: FC<propsType> = (props: propsType) => {
     return color + props.form.alpha;
   };
 
-  const saveImage = () => {
-    p5Instance.save(canvas, 'created-image.png');
-  };
-
   return (
-    <div
-      className="flex flex-col align-center justify-center"
-      style={{ width: '350px' }}
-    >
-      <div style={{ width: '350px', height: '622px' }}>
-        <Sketch key={props.form.id} setup={setup} draw={draw} />
-      </div>
-      <Button className="my-8 text-lg" variant="outlined" onClick={saveImage}>
-        Save Image
-      </Button>
+    <div style={{ width: '350px', height: '622px' }}>
+      <Sketch key={props.form.id} setup={setup} draw={draw} />
     </div>
   );
 };
