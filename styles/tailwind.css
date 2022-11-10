@@ -15,6 +15,12 @@
     position: relative;
     background-color: black;
   }
+
+  .trianglify canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @tailwind components;
