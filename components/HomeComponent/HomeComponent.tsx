@@ -1,6 +1,6 @@
+import ImageCarousel from 'components/ImageCarousel/ImageCarousel';
 import SketchContainer from 'components/SketchContainer/SketchContainer';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { FC, useContext, useState } from 'react';
 import {
   DEFAULT_IMAGE_PARAMETERS,
@@ -21,7 +21,7 @@ const HomeComponent: FC = () => {
   };
 
   return (
-    <div className="flex gap-10">
+    <div className="flex flex-wrap justify-center gap-10">
       <div className="relative" style={{ height: 'fit-content' }}>
         <SketchContainer form={form} />
         <div className="absolute flex justify-between w-full bottom-5">
@@ -48,14 +48,8 @@ const HomeComponent: FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 auto-rows-min gap-3 w-2/5">
-        {blobImages.map((blob, index) => {
-          const url = URL.createObjectURL(blob);
-
-          return (
-            <Image key={index} src={url} width={'116.6px'} height={'207.3px'} />
-          );
-        })}
+      <div style={{ width: '400px', height: '650px' }}>
+        {blobImages.length > 0 && <ImageCarousel />}
       </div>
     </div>
   );
