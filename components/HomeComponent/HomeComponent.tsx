@@ -18,6 +18,8 @@ const HomeComponent: FC = () => {
     (canvasElement as HTMLCanvasElement).toBlob((blob) => {
       setBlobImages((current) => [...current, blob]);
     });
+
+    setForm(getRandomParameters());
   };
 
   return (
