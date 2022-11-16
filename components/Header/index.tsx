@@ -8,12 +8,8 @@ const Header: FC = () => {
       <h1 className="text-3xl font-bold text-white">Batch mint test </h1>
 
       <div className="flex items-center gap-10">
-        <Link
-          href="/gallery"
-          className="text-white font-semibold "
-          style={{ height: 'fit-content' }}
-        >
-          Gallery
+        <Link href="/gallery" style={{ height: 'fit-content' }}>
+          <p className="text-white font-semibold ">Gallery</p>
         </Link>
         <MetamaskConnectButton />
       </div>
