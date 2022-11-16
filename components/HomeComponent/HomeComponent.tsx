@@ -23,7 +23,7 @@ const HomeComponent: FC = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-10">
+    <div className="flex flex-wrap justify-center mt-16 gap-10">
       <div className="relative" style={{ height: 'fit-content' }}>
         <SketchContainer form={form} />
         <div className="absolute flex justify-between w-full bottom-5">
