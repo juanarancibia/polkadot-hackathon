@@ -30,9 +30,7 @@ const Layout: FC = ({ children }) => {
     <div className="flex flex-grow flex-col trianglify">
       <Trianglify {...trianglifyOptions} key={windowSize.innerWidth} />
       <Header />
-      <main className="container mx-auto mt-10 flex justify-center">
-        {children}
-      </main>
+      <main className="mx-auto flex flex-1 justify-center">{children}</main>
     </div>
   );
 };

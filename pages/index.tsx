@@ -5,7 +5,7 @@ export const Home = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Polkadot Hackathon</title>
+        <title>Batch minting</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
