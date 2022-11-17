@@ -1,7 +1,14 @@
 /* eslint-disable react/no-unknown-property */
 import { useTexture } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
-import { BoxGeometry, Mesh, MeshBasicMaterial, sRGBEncoding } from 'three';
+import {
+  BoxGeometry,
+  Clock,
+  Mesh,
+  MeshBasicMaterial,
+  sRGBEncoding,
+} from 'three';
 
 const WallpaperFrame: any = (props: {
   image: string;
@@ -32,11 +39,31 @@ const WallpaperFrame: any = (props: {
   mesh.position.setFromCylindricalCoords(props.radius * 0.7, props.position, 1);
   mesh.lookAt(0, 1, 0);
 
+  let clock = new Clock();
+
+  useFrame(() => {
+    const t = clock.getElapsedTime();
+
+    if (!active && hovered && mesh.scale.x < 1.01) {
+      mesh.scale.x = 1 + t / 10;
+      mesh.scale.y = 1 + t / 10;
+    }
+
+    if (active && hovered && mesh.scale.x < 1.5) {
+      mesh.scale.x = 1 + t * 1.2;
+      mesh.scale.y = 1 + t * 1.2;
+    }
+  });
+
+  const onImageClick = () => {
+    clock = new Clock();
+    setActive((current) => !current);
+  };
+
   return (
     <primitive
       object={mesh}
-      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-      onClick={() => hovered && setActive(true)}
+      onClick={onImageClick}
       onPointerOver={() => setHover(true)}
       onPointerOut={() => {
         setHover(false);

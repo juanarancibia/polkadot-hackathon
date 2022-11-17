@@ -1,7 +1,6 @@
+import { OrbitControls } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
-import { useEffect } from 'react';
-import { PerspectiveCamera, Vector3 } from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { PerspectiveCamera } from 'three';
 
 const CameraController: any = (props: { numberOfImages: number }) => {
   const { camera, gl } = useThree();
@@ -9,26 +8,21 @@ const CameraController: any = (props: { numberOfImages: number }) => {
   (camera as PerspectiveCamera).zoom =
     props.numberOfImages > 15 ? (props.numberOfImages > 30 ? 2.5 : 1.5) : 1;
 
-  useEffect(() => {
-    const controls = new OrbitControls(camera, gl.domElement);
-    controls.target = new Vector3(0, 1, 0);
-    controls.maxPolarAngle = Math.PI / 2;
-    controls.minPolarAngle = Math.PI / 2;
-    controls.rotateSpeed = 0.1;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.5;
-    controls.enableZoom = true;
-    controls.maxDistance = 8;
-    controls.minDistance = 2;
-    controls.enablePan = false;
-
-    controls.update();
-    return () => {
-      controls.dispose();
-    };
-  }, [camera, gl]);
-
-  return null;
+  return (
+    <OrbitControls
+      args={[camera, gl as any]}
+      target={[0, 1, 0]}
+      maxPolarAngle={Math.PI / 2}
+      minPolarAngle={Math.PI / 2}
+      rotateSpeed={0.1}
+      autoRotate={true}
+      autoRotateSpeed={0.5}
+      enableZoom={true}
+      maxDistance={8}
+      minDistance={2}
+      enablePan={false}
+    />
+  );
 };
 
 export default CameraController;
