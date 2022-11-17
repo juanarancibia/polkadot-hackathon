@@ -29,7 +29,7 @@ const SketchContainer: FC<propsType> = (props: propsType) => {
     active = [];
     ordered = [];
 
-    p5.createCanvas(350, 622).parent(canvasParentRef);
+    p5.createCanvas(315, 560.8).parent(canvasParentRef);
     p5.background(props.form.bgColor);
     p5.strokeCap(p5.ROUND);
 
@@ -186,7 +186,7 @@ const SketchContainer: FC<propsType> = (props: propsType) => {
   };
 
   return (
-    <div style={{ width: '350px', height: '622px' }}>
+    <div style={{ width: '315px', height: '560px' }}>
       <Sketch key={props.form.id} setup={setup} draw={draw} />
     </div>
   );

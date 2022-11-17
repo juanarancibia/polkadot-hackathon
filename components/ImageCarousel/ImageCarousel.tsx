@@ -15,8 +15,8 @@ const ImageSlide = memo((props: StackedCarouselSlideProps) => {
   return (
     <div>
       <Image
-        height={'560px'}
-        width={'315px'}
+        height={'498px'}
+        width={'280px'}
         style={{
           objectFit: 'cover',
           borderRadius: 5,
@@ -48,7 +48,7 @@ const ImageCarousel: FC = () => {
               ref={carouselRef}
               slideComponent={ImageSlide}
               slideWidth={315}
-              carouselWidth={400}
+              carouselWidth={427}
               height={560}
               data={blobImages}
               maxVisibleSlide={blobImages.length >= 3 ? 3 : 1}

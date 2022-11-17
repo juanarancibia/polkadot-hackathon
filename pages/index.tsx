@@ -9,7 +9,12 @@ export const Home = (): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeComponent />
+      <div className="flex flex-col items-center">
+        <h1 className="pt-10 font-bold text-center text-5xl text-white tracking-wide uppercase">
+          Select your images
+        </h1>
+        <HomeComponent />
+      </div>
     </>
   );
 };
